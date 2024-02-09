@@ -24,7 +24,7 @@
     - name: Clone GitHub repository
       copy:
         src: /root/.jenkins/workspace/portofolio-web/
-        dest: /var/www/
+        dest: /var/www/portofolio-web
     # Update the repository if it already exists
 
     - name: Copy Apache configuration file
