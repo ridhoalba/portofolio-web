@@ -16,6 +16,7 @@
       apt:
         name: apache2
         state: present
+        force: yes
 
     - name: Ensure Apache service is enabled and running
       service:
