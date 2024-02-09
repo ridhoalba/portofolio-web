@@ -23,7 +23,7 @@
 
     - name: Copy project
       copy:
-        src: /root/.jenkins/workspace/portofolio-web
+        src: /root/.jenkins/workspace/portofolio-web/
         dest: /var/www/
         remote_src: yes
 
