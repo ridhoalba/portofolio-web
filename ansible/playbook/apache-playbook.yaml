@@ -25,8 +25,7 @@
       copy:
         src: /root/.jenkins/workspace/portofolio-web/
         dest: /var/www/
-        recurse: yes
-        update: yes # Update the repository if it already exists
+    # Update the repository if it already exists
 
     - name: Copy Apache configuration file
       copy:
