@@ -10,14 +10,14 @@ pipeline {
                     ssh-keygen -f portofolio-web -N '' -y
                     cat portofolio-web
                     cd terraform
-                    #terraform init
-                    #terraform plan
-                    #terraform destroy --auto-approve
-                    #terraform apply --auto-approve
+                    terraform init
+                    terraform plan
+                    terraform destroy --auto-approve
+                    terraform apply --auto-approve
                     cd ../ansible
                     ls
-                    #rm /root/.ssh/known_hosts
-                    #touch /root/.ssh/known_hosts
+                    rm /root/.ssh/known_hosts
+                    touch /root/.ssh/known_hosts
                     ansible all -i inventory/hosts --list-hosts
                     #ansibleAdhoc credentialsId: 'portofolio-web', disableHostKeyChecking: true, inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', hosts: 'all', module: 'ping'
                     #ansibleAdhoc('ansible all -i inventory/hosts -m ping')
@@ -29,6 +29,7 @@ pipeline {
             steps {
                 // Replace this with your test commands
                 sh 'echo "Testing..."'
+                ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/ping.yaml', vaultTmpPath: ''
                 ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/apache-playbook.yaml', vaultTmpPath: ''
             }
         }
