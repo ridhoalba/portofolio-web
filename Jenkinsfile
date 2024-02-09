@@ -11,7 +11,7 @@ pipeline {
                     terraform init
                     terraform plan
                     terraform destroy
-                    terraform apply
+                    terraform apply --auto-approve
                     ansible all -i ansible/inventory -m ping
                 '''
             }
