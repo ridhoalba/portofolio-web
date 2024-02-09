@@ -29,7 +29,7 @@ pipeline {
             steps {
                 // Replace this with your test commands
                 sh 'echo "Testing..."'
-                // ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/apache-playbook.yaml', vaultTmpPath: ''
+                ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/apache-playbook.yaml', vaultTmpPath: ''
             }
         }
         stage('Deploy') {
