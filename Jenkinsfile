@@ -8,6 +8,7 @@ pipeline {
                 sh '''
                     ls
                     #ssh-keygen -f portofolio-web -N '' -y
+                    cat portofolio-web
                     cd terraform
                     #terraform init
                     #terraform plan
@@ -18,7 +19,7 @@ pipeline {
                     rm /root/.ssh/known_hosts
                     touch /root/.ssh/known_hosts
                     ansible all -i inventory/hosts --list-hosts
-                    ansible all -i inventory/hosts -m ping
+                    # ansible all -i inventory/hosts -m ping
                 '''
             }
         }
