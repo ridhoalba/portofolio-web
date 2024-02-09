@@ -27,7 +27,7 @@
     - name: Clone GitHub repository
       git:
         repo: https://github.com/ridhoalba/portofolio-web.git
-        dest: /var/www/
+        dest: /var/www/portofolio-web
         update: yes # Update the repository if it already exists
 
     - name: Copy Apache configuration file
