@@ -20,8 +20,8 @@
 
     # - name: Ping each host
     #   ping:
-    - name: mkdir
-      shell: mkdir /var/www/portofolio-web
+    # - name: mkdir
+    #   shell: mkdir /var/www/portofolio-web
     - name: Clone GitHub repository
       copy:
         src: /root/.jenkins/workspace/portofolio-web/
