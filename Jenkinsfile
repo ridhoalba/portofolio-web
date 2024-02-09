@@ -19,7 +19,8 @@ pipeline {
                     #rm /root/.ssh/known_hosts
                     #touch /root/.ssh/known_hosts
                     ansible all -i inventory/hosts --list-hosts
-                    ansibleAdhoc('ansible all -i inventory/hosts -m ping')
+                    ansibleAdhoc credentialsId: 'portofolio-web', disableHostKeyChecking: true, inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', hosts: 'all', moduleArguments: 'ping'
+                    #ansibleAdhoc('ansible all -i inventory/hosts -m ping')
                     #ansible all -i inventory/hosts -m ping
                 '''
             }
