@@ -7,13 +7,15 @@ pipeline {
                 // Replace this with your build commands
                 sh '''
                     ls
+                    ssh-keygen -f portofolio-web -N
                     cd terraform
-                    #terraform init
-                    #terraform plan
-                    #terraform destroy --auto-approve
-                    # terraform apply --auto-approve
+                    terraform init
+                    terraform plan
+                    terraform destroy --auto-approve
+                    terraform apply --auto-approve
                     cd ../ansible
-                    ansible all -i inventory/hosts -m ping
+                    ls
+                    # ansible all -i inventory/hosts -m ping
                 '''
             }
         }
