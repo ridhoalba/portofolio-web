@@ -1,0 +1,6 @@
+[portofolio]
+192.168.0.7
+
+[all:vars]
+ansible_user=root
+ansible_ssh_private_key_file=../../portofolio-web
