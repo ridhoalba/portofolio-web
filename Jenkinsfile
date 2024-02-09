@@ -10,6 +10,9 @@ pipeline {
                     cd terraform
                     terraform init
                     terraform plan
+                    terraform destroy
+                    terraform apply
+                    ansible all -i ansible/inventory -m ping
                 '''
             }
         }
