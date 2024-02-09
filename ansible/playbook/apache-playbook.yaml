@@ -37,6 +37,13 @@
       notify:
         - Restart Apache
 
+    - name: Disable default Apache site
+      command: a2dissite 000-default
+      args:
+        creates: /etc/apache2/sites-enabled/000-default.conf
+      notify:
+        - Restart Apache
+
     - name: Enable Apache site
       command: a2ensite portofolio-web.conf
       args:
