@@ -7,7 +7,7 @@ pipeline {
                 // Replace this with your build commands
                 sh '''
                     ls
-                    ssh-keygen -f portofolio-web -N '' -q
+                    ssh-keygen -q -Q -f portofolio-web -N '' 
                     cd terraform
                     terraform init
                     terraform plan
