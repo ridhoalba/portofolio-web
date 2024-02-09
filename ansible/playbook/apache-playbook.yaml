@@ -21,11 +21,11 @@
     - name: Ping each host
       ping:
 
-    - name: Clone GitHub repository
-      git:
-        repo: https://github.com/ridhoalba/portofolio-web.git
-        dest: /var/www/portofolio-web
-        update: yes # Update the repository if it already exists
+    - name: Copy project
+      copy:
+        src: /root/.jenkins/workspace/portofolio-web
+        dest: /var/www/
+        remote_src: yes
 
     - name: Copy Apache configuration file
       copy:
@@ -34,19 +34,10 @@
       notify:
         - Restart Apache
 
-    - name: Disable default Apache site
-      command: a2dissite 000-default.conf
-      args:
-        creates: /etc/apache2/sites-enabled/000-default.conf
-      notify:
-        - Restart Apache
-
-    - name: Enable Apache site
-      command: a2ensite portofolio-web.conf
-      args:
-        creates: /etc/apache2/sites-enabled/portofolio-web.conf
-      notify:
-        - Restart Apache
+    - name: Disable default Apache site and enable portofolio-web.conf
+      shell: |
+        a2dissite /etc/apache2/sites-available/000-default.conf
+        a2ensite /etc/apache2/sites-available/portofolio-web.conf
 
   handlers:
     - name: Restart Apache
