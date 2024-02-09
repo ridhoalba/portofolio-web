@@ -10,19 +10,23 @@ pipeline {
                     ssh-keygen -f portofolio-web -N '' -y
                     cat portofolio-web
                     cd terraform
-                    #terraform init
-                    #terraform plan
-                    #terraform destroy --auto-approve
-                    #terraform apply --auto-approve
+                    terraform init
+                    terraform plan
+                    terraform destroy --auto-approve
+                    terraform apply --auto-approve
                     cd ../ansible
                     ls
-                    #rm /root/.ssh/known_hosts
-                    #touch /root/.ssh/known_hosts
+                    rm /root/.ssh/known_hosts
+                    touch /root/.ssh/known_hosts
                     ansible all -i inventory/hosts --list-hosts
                     #ansibleAdhoc credentialsId: 'portofolio-web', disableHostKeyChecking: true, inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', hosts: 'all', module: 'ping'
                     #ansibleAdhoc('ansible all -i inventory/hosts -m ping')
                     #ansible all -i inventory/hosts -m ping
                 '''
+                script {
+                    // Menunggu selama 5 menit (300 detik)
+                    sleep time: 300, unit: 'SECONDS'
+                }
             }
         }
         stage('Test') {

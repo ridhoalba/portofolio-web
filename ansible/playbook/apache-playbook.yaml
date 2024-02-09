@@ -18,8 +18,8 @@
         state: started
         enabled: yes
 
-    - name: Ping each host
-      ping:
+    # - name: Ping each host
+    #   ping:
 
     - name: Clone GitHub repository
       copy:
