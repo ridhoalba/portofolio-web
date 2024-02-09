@@ -12,7 +12,8 @@ pipeline {
                     #terraform plan
                     #terraform destroy --auto-approve
                     # terraform apply --auto-approve
-                    ssh -i ../portofolio-web root@192.168.0.7
+                    cd ../ansible
+                    ansible all -i inventory/hosts -m ping
                 '''
             }
         }
