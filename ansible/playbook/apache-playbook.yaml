@@ -2,6 +2,7 @@
 - name: Install Apache HTTP Server
   hosts: all
   become: yes
+  ignore_unreachable: yes
   tasks:
     - name: Ping each host
       ping:

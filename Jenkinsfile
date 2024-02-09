@@ -26,7 +26,7 @@ pipeline {
                 '''
                 script {
                     // Menunggu selama 5 menit (300 detik)
-                    sleep time: 300, unit: 'SECONDS'
+                    sleep time: 60, unit: 'SECONDS'
                 }
             }
         }
