@@ -22,7 +22,7 @@ pipeline {
                     #ansibleAdhoc credentialsId: 'portofolio-web', disableHostKeyChecking: true, inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', hosts: 'all', module: 'ping'
                     #ansibleAdhoc('ansible all -i inventory/hosts -m ping')
                     #ansible all -i inventory/hosts -m ping
-                    ssh -i ../portofolio-web root@192.168.0.7 -y
+                    #ssh -i ../portofolio-web root@192.168.0.7 -y
                 '''
                 script {
                     // Menunggu selama 5 menit (300 detik)
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 // Replace this with your test commands
                 sh 'echo "Testing..."'
-                ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/ping.yaml', vaultTmpPath: ''
+                // ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/ping.yaml', vaultTmpPath: ''
                 ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/apache-playbook.yaml', vaultTmpPath: ''
             }
         }

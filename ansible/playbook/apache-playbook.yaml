@@ -3,6 +3,9 @@
   hosts: all
   become: yes
   tasks:
+    - name: Ping each host
+      ping:
+      ignore_errors: yes
     - name: Update apt package cache
       apt:
         update_cache: yes
@@ -18,8 +21,6 @@
         state: started
         enabled: yes
 
-    # - name: Ping each host
-    #   ping:
     # - name: mkdir
     #   shell: mkdir /var/www/portofolio-web
     - name: Clone GitHub repository
