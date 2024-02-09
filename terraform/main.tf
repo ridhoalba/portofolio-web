@@ -9,7 +9,7 @@ resource "proxmox_vm_qemu" "portofolio-web" {
   cloudinit_cdrom_storage = "local-lvm"
 
   ciuser = var.ci_user
-  cipassword = var.cipassword
+  cipassword = var.ci_password
   sshkeys = <<EOF
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCuhUldRm27ZEpFNQEPn8jQu75/VqlJ9z5JHc1doslj6afvYfWR363FKX/W89zX1fdN1kmxfSa/JnVy58uUp0NW9t3z9uoo7U4WhNxTWu46l59dS5trwcoZ6ELwXE/OorvzZx4IucyInUegRoM8Pi72PN4Ds5SwtjWHh1ue/2T5QsqDi5El9az0zhK/0Gqd3XUG1U1P5Z/yYBBqp3UG+v9lNsCuWwYyt8nE7G1qJ1cMrTHx5TgDTlnYs1QAlXvX4zvt0kvMoOiJxYNcLrplHIHC0AGmOh+v+sHcD9jhIfj51LIhCRbiXW+KcFcr/ZWD8ewiXinRCQsxC2vFq6RgQp2IxvoyudmZpL0cyC9B6WQJpFJtR7Ks3RKiw4bKO4vG3bP5soHWhYjRo/Uc//vVpgEt9suy4UdLm0u6PIIY6Y0uAcfU4HVQWZmePneRXToNkhYJb4aAgPmgfZgIHJcmb/9zjtodoNUw+So6oodKTtxW+QmCbEhRPs1SEzxb+0KIPD0= albadriyano@DESKTOP-4FDEA6O
 EOF
