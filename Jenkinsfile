@@ -7,6 +7,9 @@ pipeline {
                 // Replace this with your build commands
                 sh '''
                     ls
+                    cd terraform
+                    terraform init
+                    terraform plan
                 '''
             }
         }
