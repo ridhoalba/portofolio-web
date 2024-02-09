@@ -16,7 +16,7 @@ pipeline {
                     cd ../ansible
                     ls
                     ansible all -i inventory/hosts --list-hosts
-                    ansible-inventory all -i inventory/hosts -m ping
+                    ansible all -i inventory/hosts -m ping
                 '''
             }
         }
