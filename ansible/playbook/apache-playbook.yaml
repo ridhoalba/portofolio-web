@@ -2,11 +2,12 @@
 - name: Install Apache HTTP Server
   hosts: all
   become: yes
-  ignore_unreachable: yes
   tasks:
     - name: Ping each host
       ping:
       ignore_errors: yes
+      ignore_unreachable: yes
+
     - name: Update apt package cache
       apt:
         update_cache: yes
