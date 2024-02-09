@@ -8,11 +8,11 @@ pipeline {
                 sh '''
                     ls
                     cd terraform
-                    # terraform init
-                    # terraform plan
-                    # terraform destroy --auto-approve
-                    # terraform apply --auto-approve
-                    ansible -i ansible/inventory -m ping
+                    terraform init
+                    terraform plan
+                    terraform destroy --auto-approve
+                    terraform apply --auto-approve
+                    ansible all -i ansible/inventory -m ping
                 '''
             }
         }
