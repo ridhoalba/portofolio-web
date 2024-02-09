@@ -35,9 +35,18 @@
         - Restart Apache
 
     - name: Disable default Apache site and enable portofolio-web.conf
-      shell: |
-        a2dissite /etc/apache2/sites-available/000-default.conf
-        a2ensite /etc/apache2/sites-available/portofolio-web.conf
+      command: a2ensite portofolio-web.conf
+      args:
+        creates: /etc/apache2/sites-available/portofolio-web.conf
+      notify:
+        - Restart Apache
+
+    - name: Disable default Apache site and enable portofolio-web.conf
+      command: a2dissite 000-default.conf
+      args:
+        creates: /etc/apache2/sites-available/000-default.conf
+      notify:
+        - Restart Apache
 
   handlers:
     - name: Restart Apache
