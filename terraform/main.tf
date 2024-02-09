@@ -36,13 +36,3 @@ resource "proxmox_vm_qemu" "portofolio-web" {
      ]
   }
 }
-
-
-output "portofolio-web-info" {
-  value = [
-    for web in proxmox_vm_qemu.portofolio-web: {
-        hostname = web.name
-        ip-addr = web.default_ipv4_address
-    }
-  ]
-}
