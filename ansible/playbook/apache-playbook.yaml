@@ -33,10 +33,15 @@
         dest: /etc/apache2/sites-available/portofolio-web.conf
       notify:
         - Restart Apache
-    - name: enable and disable 
+    - name: enable and disable
       ansible.builtin.shell:
-        cmd: a2ensite /etc/apache2/sites-available/portofolio-web.conf
-        cmd: a2dissite /etc/apache2/sites-available/000-default.conf
+        cmd: a2ensite portofolio-web.conf
+        chdir: /etc/apache2/sites-available/
+
+    - name: disable
+      ansible.builtin.shell:
+        cmd: a2dissite 000-default.conf
+        chdir: /etc/apache2/sites-available/
 
   handlers:
     - name: Restart Apache
