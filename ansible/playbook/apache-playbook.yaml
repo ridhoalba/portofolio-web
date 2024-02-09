@@ -1,0 +1,19 @@
+---
+- name: Install Apache HTTP Server
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache HTTP Server
+      apt:
+        name: apache2
+        state: present
+
+    - name: Ensure Apache service is enabled and running
+      service:
+        name: apache2
+        state: started
+        enabled: yes
