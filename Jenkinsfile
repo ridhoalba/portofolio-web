@@ -29,4 +29,7 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed! Not deploying...'
-            // Add any additional actions to take
+            // Add any additional actions to take on failure
+        }
+    }
+}
