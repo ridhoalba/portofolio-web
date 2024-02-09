@@ -21,11 +21,11 @@
     - name: Ping each host
       ping:
 
-    - name: Copy project
-      copy:
-        src: /root/.jenkins/workspace/portofolio-web/
-        dest: /var/www/
-        remote_src: yes
+    - name: Clone GitHub repository
+      git:
+        repo: https://github.com/ridhoalba/portofolio-web.git
+        dest: /var/www/portofolio-web
+        update: yes # Update the repository if it already exists
 
     - name: Copy Apache configuration file
       copy:
