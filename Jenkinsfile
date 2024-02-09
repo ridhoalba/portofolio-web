@@ -15,6 +15,8 @@ pipeline {
                     # terraform apply --auto-approve
                     cd ../ansible
                     ls
+                    rm /root/.ssh/known_hosts
+                    touch /root/.ssh/known_hosts
                     ansible all -i inventory/hosts --list-hosts
                     ansible all -i inventory/hosts -m ping
                 '''
