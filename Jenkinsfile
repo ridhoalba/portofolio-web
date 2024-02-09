@@ -19,6 +19,7 @@ pipeline {
                     #rm /root/.ssh/known_hosts
                     #touch /root/.ssh/known_hosts
                     ansible all -i inventory/hosts --list-hosts
+                    ansibleAdhoc('ansible all -i inventory/hosts -m ping')
                     #ansible all -i inventory/hosts -m ping
                 '''
             }
@@ -27,7 +28,7 @@ pipeline {
             steps {
                 // Replace this with your test commands
                 sh 'echo "Testing..."'
-                ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/apache-playbook.yaml', vaultTmpPath: ''
+                // ansiblePlaybook credentialsId: 'portofolio-web', disableHostKeyChecking: true, installation: 'ansible', inventory: '/root/.jenkins/workspace/portofolio-web/ansible/inventory/hosts', playbook: '/root/.jenkins/workspace/portofolio-web/ansible/playbook/apache-playbook.yaml', vaultTmpPath: ''
             }
         }
         stage('Deploy') {
